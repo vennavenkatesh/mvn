@@ -13,13 +13,16 @@ pipeline {
         { 
             steps 
             {
-                echo 'sonarqube'
-                withSonarQubeEnv('sonarqube') 
+                script
                 {
-                    sh "mvn sonar:sonar"
+                    echo 'sonarqube'
+                    withSonarQubeEnv('sonarqube') 
+                    {
+                        sh "mvn sonar:sonar"
                     //echo $waitForQualityGate()
-                    def test = waitForQualityGate()
+                        def test = waitForQualityGate()
                     
+                    }
                 }
                 
                 //def qualitygate = waitForQualityGate()
