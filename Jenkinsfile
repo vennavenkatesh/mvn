@@ -17,7 +17,7 @@ pipeline {
                 withSonarQubeEnv('sonarqube') 
                 {
                     sh "mvn sonar:sonar"
-                    echo $waitForQualityGate()
+                    //echo $waitForQualityGate()
                 }
                 
                 //def qualitygate = waitForQualityGate()
@@ -28,9 +28,10 @@ pipeline {
                 
             }
         }
-        stage('Deploy') { 
+        stage('Create artfact') { 
             steps {
-                echo 'deploy'
+                echo 'creating artfact'
+                sh "mvn clean install"
                 // 
             }
         }
