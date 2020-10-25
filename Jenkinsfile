@@ -18,6 +18,8 @@ pipeline {
                 {
                     sh "mvn sonar:sonar"
                     //echo $waitForQualityGate()
+                    def test = waitForQualityGate()
+                    
                 }
                 
                 //def qualitygate = waitForQualityGate()
