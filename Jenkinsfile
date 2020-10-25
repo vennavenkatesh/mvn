@@ -31,7 +31,7 @@ pipeline {
         stage('Create artfact') { 
             steps {
                 echo 'creating artfact'
-                sh "mvn clean install"
+                //sh "mvn clean install"
                 // 
             }
         }
